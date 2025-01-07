@@ -42,7 +42,7 @@ CHECK_ROOT
 
  VALIDATE $? "Enabling MYSQL server"
 
- syscemctl start mysqld &>>$LOG_FILE_NAME
+ systemctl start mysqld &>>$LOG_FILE_NAME
 
  VALIDATE $? "starting MYSQL server"
 

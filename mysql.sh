@@ -35,12 +35,15 @@ echo "script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 CHECK_ROOT
 
  dnf install mysql-server -y &>>$LOG_FILE_NAME
+
  VALIDATE $? "Installing MYSQL server"
 
- syscemctl enable mysqld &>>$LOG_FILE_NAME
+ systemctl enable mysqld &>>$LOG_FILE_NAME
+
  VALIDATE $? "Enabling MYSQL server"
 
  syscemctl start mysqld &>>$LOG_FILE_NAME
+
  VALIDATE $? "starting MYSQL server"
 
  mysql_secure_installation --set-root-pass ExpenseApp@1
